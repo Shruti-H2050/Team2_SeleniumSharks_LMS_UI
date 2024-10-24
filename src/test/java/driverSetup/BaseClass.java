@@ -16,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 
 	public WebDriver driver = null;
-	
+
 	public Properties prop;
 
 	public BaseClass() {
@@ -30,19 +30,15 @@ public class BaseClass {
 		System.out.println("Inside BaseClass called ........................");
 		WebDriverManager();
 	}
-	
-	public String getUrl() {
-		return prop.getProperty("url");
-	}
 
-	public String getBrowser() {
-		return prop.getProperty("browser");
+	public String getStringProperty(String key) {
+		return prop.getProperty(key);
 	}
 
 	public WebDriver WebDriverManager() {
 		try {
 			if (driver == null) {
-				String browser = getBrowser();
+				String browser = prop.getProperty("browser");
 				if (browser.equalsIgnoreCase("Chrome")) {
 //					ChromeOptions options = new ChromeOptions();
 //					options.addArguments("--headless"); // Removing headless mode
@@ -68,9 +64,5 @@ public class BaseClass {
 		}
 		return driver;
 	}
-
-//	@Override
-//	protected void finalize() {
-//	}
 
 }

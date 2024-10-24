@@ -34,7 +34,7 @@ public class Login_steps {
 		System.out.println("currentUrl: "+currentUrl);
 //		Assert.assertTrue(false);//remove later
 		
-		Assert.assertEquals(currentUrl, context.getBaseClass().getUrl(),
+		Assert.assertEquals(currentUrl, context.getBaseClass().getStringProperty("lmsUrl"),
 				"The current URL does not match the expected URL");
 	}
 
