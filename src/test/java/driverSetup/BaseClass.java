@@ -69,8 +69,8 @@ public class BaseClass {
 		return driver;
 	}
 
-	@Override
-	protected void finalize() throws Throwable {
-	}
+//	@Override
+//	protected void finalize() {
+//	}
 
 }
