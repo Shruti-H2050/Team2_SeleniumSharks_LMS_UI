@@ -1,24 +1,32 @@
 package pageObjects;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-import driverSetup.TestContextSetup;
+public class LoginPage extends BasePage {
 
-public class LoginPage {
-//	WebDriver driver;
-//	WebDriverWait wait;
-
-	private WebDriver driver;
-
-	// private TestContextSetup context;
 	public LoginPage(WebDriver driver) {
+		super(driver);
+	}
 
-		System.out.println("Inside LoginPage constructor");
-//		this.context=context;
-//		context.getDriver().get("url");
-		this.driver = driver;
-//		PageFactory.initElements(driver, this);
-//		wait = new WebDriverWait(this.driver, Duration.ofSeconds(1));
+//--------------------WebElement-------------------------------
+
+	@FindBy(xpath = "//input[@id='username']")
+	private WebElement userNameTextBox;
+
+	@FindBy(xpath = "//input[@id='password']")
+	private WebElement passwordTextBox;
+
+	@FindBy(xpath = "//button[@id='login']")
+	private WebElement loginBtn;
+
+//---------------------Methods------------------------------------
+	
+	public void Login(String username, String password) {
+		userNameTextBox.sendKeys(username);
+		passwordTextBox.sendKeys(password);
+		loginBtn.click();
 	}
 
 }
