@@ -1,0 +1,29 @@
+[INFO ]2024-10-2322:57:55.831[main]org.testng.internal.Utils1)-[TestNG] Running:
+  C:\Users\barie\AppData\Local\JetBrains\IdeaIC2024.2\temp-testng-customsuite.xml
+
+[ERROR]2024-10-2322:58:08.899[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2322:58:10.125[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2322:58:12.669[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2322:58:13.498[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2322:58:13.745[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2322:58:14.310[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:34:45.962[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:34:46.576[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:36:52.432[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:36:53.001[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:36:55.105[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:36:55.401[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:36:57.828[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:36:58.116[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:00.229[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:00.592[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:02.677[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:02.997[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:05.266[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:05.544[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:07.632[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:07.918[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:10.049[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:10.366[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
+[ERROR]2024-10-2400:37:12.608[main]utilities.LoggerLoad1)-Steps Failed, Taking Screenshot
+[ERROR]2024-10-2400:37:12.882[main]io.qameta.allure.AllureLifecycle1)-Could not add attachment: no test is running
