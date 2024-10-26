@@ -71,5 +71,10 @@ public class TestContextSetup {
 	public LogoutPage getLogoutPage() {
 		return (logoutPage == null) ? logoutPage = new LogoutPage(driver) : logoutPage;
 	}
+	
+	public String getbatchURL() {
+		String batchURL = baseClass.getStringProperty("batchUrl");
+		return batchURL;
 		
+	}
 }
