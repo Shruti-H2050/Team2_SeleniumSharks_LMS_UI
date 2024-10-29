@@ -98,10 +98,7 @@ public class Class_steps {
 
  //***********ADD NEW CLASS STEPS**********
 
-    @Given("Admin is on the Manage class page")
-    public void admin_is_on_the_manage_class_page() {
-
-    }
+    
     @When("Admin clicka add new class under the class menu bar.")
     public void admin_clicka_add_new_class_under_the_class_menu_bar() {
 
@@ -355,12 +352,9 @@ public class Class_steps {
 //***********DELETE CLASS************
 
 
-    @When("Admin clicks on the delete icon")
-    public void admin_clicks_on_the_delete_icon() {
+   
 
-    }
-
-    @Then("Admin should see a confirmation popup with <YES> and <NO> button")
+   /* @Then("Admin should see a confirmation popup with <YES> and <NO> button")
     public void admin_should_see_a_confirmation_popup_with_yes_and_no_button() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
@@ -432,7 +426,7 @@ public class Class_steps {
     @Then("Admin should land on Manage class page and can see the selected class is not deleted from the data table")
     public void admin_should_land_on_manage_class_page_and_can_see_the_selected_class_is_not_deleted_from_the_data_table() {
 
-    }
+    }*/
 
 //**********************************SEARCH CLASS*****************************************
 
