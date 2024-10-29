@@ -29,8 +29,6 @@ public class ClassPage extends BasePage{
 	@FindBy(xpath = "//p-sorticon[@field='batchName']/i")
 	private WebElement sortBatchNames;
 	
-	
-	
 	@FindBy(xpath = "//thead[@class='p-datatable-thead']/tr/th[2]")
 	private WebElement batchNameHeader;
 	
@@ -123,8 +121,5 @@ public class ClassPage extends BasePage{
 		
 		return values;
 	}
-	
-	
-	
 	
 }
