@@ -25,7 +25,7 @@ public class TestContextSetup {
 	public TestContextSetup(BaseClass baseClass) {
 		this.baseClass = baseClass;
 		this.driver = baseClass.WebDriverManager();
-	}
+	}	
 	
 	public void launchUrl() {
 		driver.get(baseClass.getStringProperty("url"));
@@ -69,4 +69,15 @@ public class TestContextSetup {
 		return (logoutPage == null) ? logoutPage = new LogoutPage(driver) : logoutPage;
 	}
 	
+	public String getbatchURL() {
+		String batchURL = baseClass.getStringProperty("batchUrl");
+		return batchURL;
+	}
+  
+	public String getClassURL() {
+		String batchURL = baseClass.getStringProperty("classUrl");
+		return batchURL;
+	}
+
 }
+

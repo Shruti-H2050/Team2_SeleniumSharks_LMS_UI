@@ -9,10 +9,12 @@ import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,6 +25,11 @@ import org.apache.commons.lang3.StringUtils;
 
 
 import lombok.Data;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.cucumber.messages.types.Duration;
 
 @Data
 public class BasePage {
@@ -46,6 +53,7 @@ public class BasePage {
 	private WebElement showingEntriesMsg;
 
 	// ----------------Common Methods for all Modules------------------
+
 	public void justClick() {
 		Actions myAction = new Actions(driver);
 		myAction.keyDown(Keys.ESCAPE).keyUp(Keys.ESCAPE).perform();
@@ -236,5 +244,6 @@ public class BasePage {
 		}
 		return footer;
 	}
-
 }
+
+
