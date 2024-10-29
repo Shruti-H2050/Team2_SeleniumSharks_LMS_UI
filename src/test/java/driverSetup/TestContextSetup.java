@@ -32,7 +32,7 @@ public class TestContextSetup {
 	
 	
 	
-	public void launchLoginUrl() {
+	public void launchUrl() {
 		driver.get(baseClass.getStringProperty("url"));
 	}
 
