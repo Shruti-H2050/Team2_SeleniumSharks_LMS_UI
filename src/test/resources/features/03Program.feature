@@ -9,3 +9,9 @@ Feature: In Program module Navigation
     Given Admin is on dashboard page after Login
     When Admin clicks Program on the navigation bar
     Then Admin should be navigated to Program module
+
+#Scenario: Verify after login Admin lands on dashboard page	
+#Given Admin is in loginPage	
+#When Admin enter valid credentials and clicks login button	
+#Then Admin should see dashboard			
+	
