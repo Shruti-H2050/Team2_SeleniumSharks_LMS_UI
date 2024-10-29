@@ -32,7 +32,7 @@ public class Program_steps {
 	@Given("Admin is logged in to LMS Portal")
 	public void admin_is_logged_in_to_lms_portal() {
 		context.launchBrowser();
-		context.launchLoginUrl();
+		context.launchUrl();
 		loginPage.Login(context.getPropUsername(), context.getPropPassword());
 	}
 
@@ -64,7 +64,7 @@ public class Program_steps {
 	public void admin_should_not_have_any_broken_links_for_program_module() throws InterruptedException {
 		Thread.sleep(3000);
 		System.out.println("Checked all links for the Program module");
-		programPage.findBrokenLinks(programPage.getProgramPageLinks());
+		Assert.assertTrue(programPage.findBrokenLinks(programPage.getProgramPageLinks()), "No Broken Links");
 	}
 
 	// ---------------------@MenuBar2---------------------
@@ -236,7 +236,7 @@ public class Program_steps {
 	@Given("Admin is on program module after reaching dashboard")
 	public void admin_is_on_program_module_after_reaching_dashboard() {
 		context.launchBrowser();
-		context.launchLoginUrl();
+		context.launchUrl();
 		loginPage.Login(context.getPropUsername(), context.getPropPassword());
 		try {
 			Thread.sleep(1000);
@@ -359,8 +359,7 @@ public class Program_steps {
 		Assert.assertEquals(radioBtnValue, "Active", "Admin can see the status radio button is not selected any");
 	}
 
-	// ---------------@MenuBarProgramAddNewProgram8-----------bug is there
-	// programNamewith number
+	// ---------------@MenuBarProgramAddNewProgram8----------- programNamewith number
 	@When("Admin enter valid details for mandatory fields {string},{string},{string} and Click on save button")
 	public void admin_enter_valid_details_for_mandatory_fields_and_click_on_save_button(String pName, String pDesc,
 			String pStatus) {

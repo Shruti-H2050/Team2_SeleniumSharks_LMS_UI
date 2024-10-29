@@ -1,10 +1,14 @@
 package pageObjects;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +17,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.languagetool.JLanguageTool;
+import org.languagetool.language.BritishEnglish;
+import org.apache.commons.lang3.StringUtils;
+
 
 import lombok.Data;
 
@@ -48,7 +56,8 @@ public class BasePage {
 		myWait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	public void findBrokenLinks(List<WebElement> ListOfPageLinks) {
+	// -------------------- Find Broken Link -------------------------------
+	public Boolean findBrokenLinks(List<WebElement> ListOfPageLinks) {
 		List<WebElement> allLinks = ListOfPageLinks;
 		boolean hasBrokenLinks = false; // Flag to track if there are broken links
 		for (WebElement link : allLinks) {
@@ -60,7 +69,6 @@ public class BasePage {
 					connection.setRequestMethod("HEAD");
 					connection.connect();
 					int responseCode = connection.getResponseCode();
-
 					// If response code is not 200, consider it a broken link
 					if (responseCode != 200) {
 						System.out.println("Broken link: " + url + " - " + responseCode);
@@ -78,11 +86,69 @@ public class BasePage {
 		// Print a message if there are broken links
 		if (hasBrokenLinks) {
 			System.out.println("There are broken links on the page.");
+			return true;
 		} else {
 			System.out.println("All links are valid.");
+			return false;
 		}
 	}
 
+	// -------------------- Check Spelling for Login and DashBoard
+	public void checkSpelling() throws Exception {
+		Thread.sleep(500);
+		String currentPageUrl = driver.getCurrentUrl();
+		System.out.println("Current URL: " + currentPageUrl);
+		WebElement bodyElement = driver.findElement(By.tagName("body"));
+		String pageText = bodyElement.getText();
+		System.out.println("Page Text: \n" + pageText);
+		JLanguageTool langTool = new JLanguageTool(new BritishEnglish());
+		try {
+			List<org.languagetool.rules.RuleMatch> matches = langTool.check(pageText);
+			if (matches.isEmpty()) {
+				System.out.println("No spelling mistakes found.");
+			} else {
+				System.out.println("Spelling mistakes found:");
+				for (org.languagetool.rules.RuleMatch match : matches) {
+					System.out.println("Spelling mistakes found:" + match);
+					System.out.println("Context: " + match.getShortMessage());
+					System.out.println("Potential typo at line " + match.getLine() + ", column " + match.getColumn());
+					System.out.println("Suggested corrections: "
+							+ org.apache.commons.lang3.StringUtils.join(match.getSuggestedReplacements()));
+				}
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	//-------------------Sort check-------------------------
+	public boolean commonSortCheck(WebElement header, List<WebElement> eles) {
+		justClick();
+		ArrayList<String> values = new ArrayList<String>();
+		ArrayList<String> expectedSortValues = new ArrayList<String>();
+		for (WebElement ele : eles) {
+			values.add(ele.getText());
+			expectedSortValues.add(ele.getText());
+		}
+		if (header.getAttribute("aria-sort").equals("ascending")) {
+			// exo value
+			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER);
+		} else {
+			// exo value
+			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER.reversed());
+		}
+		System.out.println("Values -> " + StringUtils.join(values));
+		System.out.println("expectedSortValues -> " + StringUtils.join(expectedSortValues));
+		for (int i = 0; i < values.size(); i++) {
+			if (!values.get(i).equals(expectedSortValues.get(i))) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// ------------------------Pagination-------------------------
 	public boolean currentPageValidation(String page) {
 		boolean correctPage = false;
 		if (showingEntriesMsg.isDisplayed()) {
@@ -145,6 +211,7 @@ public class BasePage {
 		return pagination;
 	}
 
+	//-------------------Footer Validation-----------------
 	public boolean footerValidation(String moduleName) {
 		boolean footer = false;
 		waitForElementVisibility(footerText);

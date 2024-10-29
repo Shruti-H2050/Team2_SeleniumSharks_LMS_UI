@@ -184,11 +184,11 @@ Feature: In Program module Navigation
     Then Admin gets message <Message>
 
     Examples: 
-      | ProgramName           | ProgramDescription | ProgramStatus | Message      |
-      | "proDetailsNameSix"   | "proDetails Desc"  | "Active"      | "Successful" |
-      | "proDetailsNameSeven" | "proDetails Desc"  | "Inactive"    | "Successful" |
-      | "proDetailsName6 "    | "proDetails Desc"  | "Active"      | "Failed"     |
-      | "proDetailsName6 "    | "proDetails Desc"  | "Inactive"    | "Failed"     |
+      | ProgramName        | ProgramDescription | ProgramStatus | Message      |
+      | "proDetailsNameU"  | "proDetails Desc"  | "Active"      | "Successful" |
+      | "proDetailsNameV"  | "proDetails Desc"  | "Inactive"    | "Successful" |
+      | "proDetailsName6 " | "proDetails Desc"  | "Active"      | "Failed"     |
+      | "proDetailsName6 " | "proDetails Desc"  | "Inactive"    | "Failed"     |
 
   @MenuBarProgramAddNewProgram10
   Scenario: Verify cancel program details
