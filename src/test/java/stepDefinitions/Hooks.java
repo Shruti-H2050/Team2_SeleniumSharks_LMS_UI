@@ -24,7 +24,7 @@ public class Hooks {
 		if (context.getDriver() != null) {
 			System.out.println("Running After hook...");
 			context.getDriver().quit();
-			context.setDriver(null);
+			//context.setDriver(null);
 		}
 	}
 
