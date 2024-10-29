@@ -41,10 +41,10 @@ public class BaseClass {
 			if (driver == null) {
 				String browser = prop.getProperty("browser");
 				if (browser.equalsIgnoreCase("Chrome")) {
-					ChromeOptions options = new ChromeOptions();
-					options.addArguments("--headless"); // Removing headless mode
-					driver = new ChromeDriver(options);
-//					driver = new ChromeDriver();
+					//ChromeOptions options = new ChromeOptions();
+					//options.addArguments("--headless"); // Removing headless mode
+					//driver = new ChromeDriver(options);
+					driver = new ChromeDriver();
 
 				} else if (browser.equalsIgnoreCase("Firefox")) {
 					FirefoxOptions options = new FirefoxOptions();
