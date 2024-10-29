@@ -27,22 +27,24 @@ public class BasePage {
 	}
 
 	// ----------------------WebElements-------------------------------
-	
-	@FindBy(xpath = "//div[contains(text(),'In total there are')]")
+
+	@FindBy(xpath = "//div[contains(text(),'In total there are') and contains(text(),'programs.')] ")
 	private WebElement footerText; // common for all
 
 	@FindBy(xpath = "//span[contains(text(),'Showing') and contains(text(),'of') and contains(text(),'entries')]")
 	private WebElement paginationText; // common for all
 
-	// -----------------------Methods----------------------------------
-	
+	@FindBy(xpath = "//span[@class='p-paginator-current ng-star-inserted' and (contains(text(),'Showing'))]")
+	private WebElement showingEntriesMsg;
+
+	// ----------------Common Methods for all Modules------------------
 	public void justClick() {
 		Actions myAction = new Actions(driver);
 		myAction.keyDown(Keys.ESCAPE).keyUp(Keys.ESCAPE).perform();
 	}
 
 	public void waitForElementVisibility(WebElement element) {
-		WebDriverWait myWait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		WebDriverWait myWait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		myWait.until(ExpectedConditions.visibilityOf(element));
 	}
 
@@ -81,25 +83,87 @@ public class BasePage {
 		}
 	}
 
+	public boolean currentPageValidation(String page) {
+		boolean correctPage = false;
+		if (showingEntriesMsg.isDisplayed()) {
+			String paginationText = showingEntriesMsg.getText();
+			String[] paginationTextArray = paginationText.split(" ");
+			int totalEntries = Integer.parseInt(paginationTextArray[5]);
+			int showingEntries = Integer.parseInt(paginationTextArray[3]);
+			int priorlastEntries = totalEntries - (totalEntries % 5);
+			switch (page) {
+			case "last": {
+				if (totalEntries == showingEntries) {
+					correctPage = true;
+					break;
+				}
+			}
+			case "priorLast": {
+				if (priorlastEntries == showingEntries) {
+					correctPage = true;
+					break;
+				}
+			}
+			case "first": {
+				if (showingEntries == 5) {
+					correctPage = true;
+					break;
+				}
+			}
+			default: {
+				System.out.println("Incorrect page entered...");
+				break;
+			}
+			}
+		}
+		return correctPage;
+	}
+
+	public boolean paginationValidation() throws InterruptedException {
+		justClick();
+		Thread.sleep(3000);
+		boolean pagination = false;
+		if (showingEntriesMsg.isDisplayed()) {
+			String paginationMsg = showingEntriesMsg.getText();
+			System.out.println("Pagination text: " + paginationMsg);
+
+			String[] paginationTextArray = paginationMsg.split(" ");
+			int totalMNoInPaginationText = Integer.parseInt(paginationTextArray[5]);
+			System.out.println("Total number in pagination text: " + totalMNoInPaginationText);
+
+			String footerMsg = footerText.getText();
+			System.out.println("Footer text: " + footerMsg);
+
+			String[] footerTextArray = footerMsg.split(" ");
+			int totalNoInFooter = Integer.parseInt(footerTextArray[4]);
+			System.out.println("Total number in footer text: " + totalNoInFooter);
+
+			if (totalMNoInPaginationText == totalNoInFooter) {
+				pagination = true;
+			}
+		}
+		return pagination;
+	}
+
 	public boolean footerValidation(String moduleName) {
 		boolean footer = false;
 		waitForElementVisibility(footerText);
 		if (footerText.isDisplayed() == true) {
 			String footerMsg = footerText.getText();
-			System.out.println("Footer text: " + footerMsg);
+			System.out.println("Footer test: " + footerMsg);
 
 			String[] footerTextArray = footerMsg.split(" ");
-			int totalPageNoInFooter = Integer.parseInt(footerTextArray[4]);
-			System.out.println("Total number of " + moduleName + " in footer text: " + totalPageNoInFooter);
+			int totalNoInFooter = Integer.parseInt(footerTextArray[4]);
+			System.out.println("Total number of " + moduleName + " in footer text: " + totalNoInFooter);
 
 			String paginationMsg = paginationText.getText();
 			System.out.println("Pagination text: " + paginationMsg);
 
 			String[] paginationTextArray = paginationMsg.split(" ");
-			int totalPageNoInPaginationText = Integer.parseInt(paginationTextArray[5]);
-			System.out.println("Total number of " + moduleName + " in pagination text: " + totalPageNoInPaginationText);
+			int totalNoInPaginationText = Integer.parseInt(paginationTextArray[5]);
+			System.out.println("Total number of " + moduleName + " in pagination text: " + totalNoInPaginationText);
 
-			if (totalPageNoInFooter == totalPageNoInPaginationText) {
+			if (totalNoInFooter == totalNoInPaginationText) {
 				footer = true;
 			}
 		}

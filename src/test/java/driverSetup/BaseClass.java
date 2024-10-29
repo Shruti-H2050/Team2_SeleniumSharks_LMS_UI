@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -40,20 +41,20 @@ public class BaseClass {
 			if (driver == null) {
 				String browser = prop.getProperty("browser");
 				if (browser.equalsIgnoreCase("Chrome")) {
-//					ChromeOptions options = new ChromeOptions();
-//					options.addArguments("--headless"); // Removing headless mode
-//					driver = new ChromeDriver(options);
-					driver = new ChromeDriver();
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--headless"); // Removing headless mode
+					driver = new ChromeDriver(options);
+//					driver = new ChromeDriver();
 
 				} else if (browser.equalsIgnoreCase("Firefox")) {
 					FirefoxOptions options = new FirefoxOptions();
-//					options.addArguments("--headless"); // Removing headless mode
+					options.addArguments("--headless"); // Removing headless mode
 					driver = new FirefoxDriver(options);
 				} else if (browser.equalsIgnoreCase("Edge")) {
 					EdgeOptions options = new EdgeOptions();
 					WebDriverManager.edgedriver().clearDriverCache().setup();
 					WebDriverManager.edgedriver().clearResolutionCache().setup();
-//					options.addArguments("--headless"); // Uncomment this line if you want to enable headless mode
+					options.addArguments("--headless"); // Uncomment this line if you want to enable headless mode
 					driver = new EdgeDriver(options);
 				}
 			}

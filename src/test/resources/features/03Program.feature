@@ -1,8 +1,6 @@
 @Team2_SeleniumSharks_LMS_UI
 Feature: In Program module Navigation
 
-  #Background:
-  #Given Admin is logged in to LMS Portal
   @Navigation
   Scenario: Verify that Admin is able to navigate to Program module
     Given Admin is logged in to LMS Portal
@@ -196,7 +194,7 @@ Feature: In Program module Navigation
   Scenario: Verify cancel program details
     Given Admin is on program module after reaching dashboard
     And Admin is on Program details form
-    When Admin Click on cancel button
+    When Admin clicks Cancel button
     Then Admin can see program details form disappear
 
   @MenuBarProgramAddNewProgram11

@@ -28,7 +28,7 @@ public class TestContextSetup {
 	}
 	
 	public void launchLoginUrl() {
-		driver.get(baseClass.getStringProperty("loginUrl"));
+		driver.get(baseClass.getStringProperty("url"));
 	}
 
 	public void launchBrowser() {

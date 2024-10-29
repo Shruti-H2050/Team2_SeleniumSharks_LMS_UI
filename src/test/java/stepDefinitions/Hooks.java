@@ -19,21 +19,14 @@ public class Hooks {
 		this.context = context;
 	}
 
-//	@Before
-//	public void setUp() {
-//		// Any pre-test setup can go here
-//		System.out.println("Running Before hook...");
-//	}
-
-//	@After
-//	public void tearDown() {
-//		if (context.getDriver() != null) {
-//			System.out.println("Running After hook...");
-//			context.getDriver().quit();
-//			context.setDriver(null);
-//		}
-//
-//	}
+	@After
+	public void tearDown() {
+		if (context.getDriver() != null) {
+			System.out.println("Running After hook...");
+			context.getDriver().quit();
+			context.setDriver(null);
+		}
+	}
 
 	@AfterStep
 	public void afterStep(Scenario scenario) { // teardown()
