@@ -547,3 +547,168 @@ public void admin_clicks_link_on_the_class_table(String page) {
 
 
 }
+
+	@Given("Admin is on the Manage Class page")
+	public void admin_is_on_the_manage_class_page() {
+		 classPage.manageClassTitleDisplay();
+	        Assert.assertTrue(classPage.manageClassTitleDisplay());
+	        System.out.println("Admin is on the Manage class page");
+	}
+
+	@When("Admin clicks on the delete icon")
+	public void admin_clicks_on_the_delete_icon() {
+		classPage.justClick();
+		classPage.clickdeleteIcons();
+	}
+
+	@Then("Admin should see a confirmation popup with <YES> and <NO> button")
+	public void admin_should_see_a_confirmation_popup_with_yes_and_no_button() {
+		classPage.confirmDialog();
+	}
+
+	@Given("Admin is on Confirm Deletion alert")
+	public void admin_is_on_confirm_deletion_alert() {
+		classPage.justClick();
+		classPage.clickdeleteIcons();
+		classPage.confirmDialog();
+	}
+
+	@When("Admin clicks yes option")
+	public void admin_clicks_yes_option() {
+		classPage.clickDeletYesBtn();
+	}
+
+	@Then("Admin gets a message {string} alert and do not see that Class in the data table")
+	public void admin_gets_a_message_alert_and_do_not_see_that_class_in_the_data_table(String string) {
+		classPage.deleteSuccessMessage();
+	}
+
+	@When("Admin clicks no option")
+	public void admin_clicks_no_option() {
+		classPage.clickDeletNoBtn();
+	}
+
+	@Then("Admin can see the deletion alert disappears without deleting")
+	public void admin_can_see_the_deletion_alert_disappears_without_deleting() {
+	   context.getClassURL();
+	}
+
+	@When("Admin clicks on close button")
+	public void admin_clicks_on_close_button() {
+	    classPage.deletealertcross();
+	}
+
+	@Then("Admin can see the deletion alert disappears without any changes")
+	public void admin_can_see_the_deletion_alert_disappears_without_any_changes() {
+	   context.getClassURL();
+	   Assert.assertTrue(classPage.searchbox());
+	}
+
+	@Given("Admin is in Manage Class page")
+	public void admin_is_in_manage_class_page() {
+	   
+	}
+
+	@When("Admin clicks any checkbox in the data table")
+	public void admin_clicks_any_checkbox_in_the_data_table() {
+		classPage.checkboxSelected();
+	}
+
+	@Then("Admin should see common delete option enabled under header Manage class")
+	public void admin_should_see_common_delete_option_enabled_under_header_manage_class() {
+		classPage.headerdeleteIcon();
+	}
+
+	@When("Admin clicks <YES> button on the alert")
+	public void admin_clicks_yes_button_on_the_alert() {
+		classPage.clickDeletYesBtn();
+	}
+
+	@When("Admin clicks <No> button on the alert")
+	public void admin_clicks_no_button_on_the_alert() {
+		classPage.clickDeletNoBtn();
+	}
+
+	@Then("Admin should land on Manage class page and can see the selected class is deleted from the data table")
+	public void admin_should_land_on_manage_class_page_and_can_see_the_selected_class_is_deleted_from_the_data_table() {
+	   context.getClassURL();
+	}
+
+	@Then("Admin should land on Manage class page and can see the selected class is not deleted from the data table")
+	public void admin_should_land_on_manage_class_page_and_can_see_the_selected_class_is_not_deleted_from_the_data_table() {
+		 context.getClassURL();
+	}
+
+	@Given("Admin is on the Edit Class Popup window")
+	public void admin_is_on_the_edit_class_popup_window() {
+		classPage.justClick();
+		classPage.editDialog();
+	}
+	@When("Admin clicks Cancel button on edit popup")
+	public void admin_clicks_cancel_button_on_edit_popup() {
+	   
+	}
+	@Then("Admin can see the class details popup disappears and can see nothing changed for particular Class")
+	public void admin_can_see_the_class_details_popup_disappears_and_can_see_nothing_changed_for_particular_class() {
+	   
+	}
+	@When("Admin clicks on the edit icon")
+	public void admin_clicks_on_the_edit_icon() {
+		classPage.justClick();
+		classPage.clickeditIcon();
+	}
+	@Then("A new pop up with class details appears")
+	public void a_new_pop_up_with_class_details_appears() {
+	   classPage.editDialog();
+	}
+	
+	@Then("Admin should see the batch name field is disabled")
+	public void admin_should_see_the_batch_name_field_is_disabled() {
+		classPage.pgmFieldDisabledforediting();
+	}
+	
+	@When("Update the fields with invalid values and click save")
+	public void update_the_fields_with_invalid_values_and_click_save() {
+	  
+	}
+	@Then("Admin should get Error message")
+	public void admin_should_get_error_message() {
+	    
+	}
+	
+	@When("Update the mandatory fields with valid values and click save")
+	public void update_the_mandatory_fields_with_valid_values_and_click_save() {
+	    
+	}
+	
+	
+	@Then("Admin should see the class topic field is disabled")
+	public void admin_should_see_the_class_topic_field_is_disabled() {
+		classPage.classTopicFieldDisabledforediting();
+	}
+	
+	@When("Update the optional fields with valid values and click save")
+	public void update_the_optional_fields_with_valid_values_and_click_save() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	@When("Update the fields with valid data and click save")
+	public void update_the_fields_with_valid_data_and_click_save() {
+		classPage.classDescField();
+		classPage.classCmntsField();
+		classPage.clickSave();
+	}
+	@Then("Admin gets message {string} and see the updated values in data table")
+	public void admin_gets_message_and_see_the_updated_values_in_data_table(String string) {
+	    
+	}
+	
+	@When("Admin enters only numbers or special char in the text fields")
+	public void admin_enters_only_numbers_or_special_char_in_the_text_fields() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+}
+
