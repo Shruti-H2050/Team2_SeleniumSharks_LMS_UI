@@ -22,16 +22,13 @@ public class TestContextSetup {
 	private ClassPage classPage;
 	private LogoutPage logoutPage;
 
-
-	
 	public TestContextSetup(BaseClass baseClass) {
 		this.baseClass = baseClass;
 		this.driver = baseClass.WebDriverManager();
-
 	}
 	
-	public void launchUrl() {
-		driver.get(baseClass.getStringProperty("url"));
+	public void launchLoginUrl() {
+		driver.get(baseClass.getStringProperty("loginUrl"));
 	}
 
 	public void launchBrowser() {
@@ -71,5 +68,5 @@ public class TestContextSetup {
 	public LogoutPage getLogoutPage() {
 		return (logoutPage == null) ? logoutPage = new LogoutPage(driver) : logoutPage;
 	}
-		
+	
 }

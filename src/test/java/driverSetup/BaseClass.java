@@ -55,13 +55,12 @@ public class BaseClass {
 					WebDriverManager.edgedriver().clearResolutionCache().setup();
 //					options.addArguments("--headless"); // Uncomment this line if you want to enable headless mode
 					driver = new EdgeDriver(options);
-				} else if (driver != null) {
-					driver.manage().window().maximize();
-					driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 				}
 			}
 		} catch (Exception e) {
 		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		return driver;
 	}
 
