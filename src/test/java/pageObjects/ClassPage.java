@@ -468,7 +468,7 @@ public class ClassPage extends BasePage {
 		return getTodaysDate_MMDDYYY().split("/")[1];
 	}
 
-=======
+
 		@FindBy (xpath="//input[@id='classTopic' and 'disabled']")
 		private WebElement classTopicFieldDisabledforediting;
 		
@@ -669,7 +669,7 @@ public class ClassPage extends BasePage {
 
 	@FindBy(xpath = "//div[contains(@class,'p-toast-message-text')]")
 	private WebElement successMessageLoc;
-=======
+
 	
 	public void clickdeleteIcons() {
 		deleteIcons.click();
