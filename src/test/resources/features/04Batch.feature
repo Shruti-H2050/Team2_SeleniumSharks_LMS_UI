@@ -69,11 +69,11 @@ Then Admin should see the Batch Details pop up window
 
 
 ##########################PAGINATION######################
-#@pagination
-#Scenario: Validate next page link
-#Given Admin is on batch page
-#When Admin clicks next page link on the data table
-#Then Admin should see the Next enabled link
+@pagination
+Scenario: Validate next page link
+Given Admin is on batch page
+When Admin clicks next page link on the data table
+Then Admin should see the Next enabled link
 @addnewBatch
 Scenario: Validate all the fields exist in pop up 
 Given Admin is on the Add new batch pop up
