@@ -33,11 +33,7 @@ public class TestContextSetup {
 	public void launchUrl() {
 		driver.get(baseClass.getStringProperty("url"));
 	}
-	
-	public String launchAppUrl() {
-		driver.get(baseClass.getStringProperty("url"));
-		return driver.getCurrentUrl();
-	}
+
 	public void launchBrowser() {
 		baseClass.getStringProperty("browser");
 	}

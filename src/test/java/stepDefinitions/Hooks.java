@@ -19,6 +19,12 @@ public class Hooks {
 		this.context = context;
 	}
 
+//	@Before
+//	public void setUp() {
+//		// Any pre-test setup can go here
+//		System.out.println("Running Before hook...");
+//	}
+
 	@After
 	public void tearDown() {
 		if (context.getDriver() != null) {
@@ -30,14 +36,15 @@ public class Hooks {
 	}
 
 	@AfterStep
-	public void afterStep(Scenario scenario) { 
-        //---------------- Capturing ScreenShot if Failed -------------------
-		if (scenario.isFailed()) { 
+	public void afterStep(Scenario scenario) { // teardown()
+		// checking to see if scenario has failed
+
+		if (!scenario.isFailed()) { 
 			utilities.LoggerLoad.error("Steps Failed, Taking Screenshot");
 			final byte[] screenshot = ((TakesScreenshot) context.getDriver()).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", "My screenshot");
-//			Allure.addAttachment("MyScreenshot",
-//					new ByteArrayInputStream(((TakesScreenshot) context.getDriver()).getScreenshotAs(OutputType.BYTES)));
+			Allure.addAttachment("MyScreenshot",
+					new ByteArrayInputStream(((TakesScreenshot) context.getDriver()).getScreenshotAs(OutputType.BYTES)));
 		}
 	}
 }
