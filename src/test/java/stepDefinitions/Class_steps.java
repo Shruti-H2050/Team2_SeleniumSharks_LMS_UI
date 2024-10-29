@@ -212,7 +212,7 @@ public class Class_steps {
 
     @Then("Admin can see the class details popup closed and adding new class")
     public void admin_can_see_the_class_details_popup_closed_and_adding_new_class() {
-       ;
+       
     }
 
 //    @Given("Admin is on the Manage Class page")
