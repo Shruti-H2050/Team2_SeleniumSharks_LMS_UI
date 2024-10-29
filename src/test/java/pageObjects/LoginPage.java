@@ -1,14 +1,12 @@
 package pageObjects;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.List;
+
 import javax.imageio.ImageIO;
-import org.languagetool.JLanguageTool;
-import org.languagetool.language.BritishEnglish;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -18,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import utilities.LoggerLoad;
