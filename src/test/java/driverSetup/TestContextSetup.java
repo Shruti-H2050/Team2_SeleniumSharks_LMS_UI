@@ -30,7 +30,9 @@ public class TestContextSetup {
 
 	}
 	
-	public void launchUrl() {
+	
+	
+	public void launchLoginUrl() {
 		driver.get(baseClass.getStringProperty("url"));
 	}
 
@@ -74,6 +76,11 @@ public class TestContextSetup {
 	
 	public String getbatchURL() {
 		String batchURL = baseClass.getStringProperty("batchUrl");
+		return batchURL;
+		
+	}
+	public String getClassURL() {
+		String batchURL = baseClass.getStringProperty("classUrl");
 		return batchURL;
 		
 	}
