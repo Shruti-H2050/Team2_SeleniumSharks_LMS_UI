@@ -43,7 +43,7 @@ public class Program_steps {
 		Thread.sleep(3000);
 		//Assert.assertEquals(currentUrl, "https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/",
 				//"Admin is not on Dashboard page after logged in");
-		System.out.println("Admin is on dashboard page after login")
+		System.out.println("Admin is on dashboard page after login");
 		
 	}
 
