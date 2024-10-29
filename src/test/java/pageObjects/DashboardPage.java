@@ -13,9 +13,10 @@ import org.openqa.selenium.support.FindBy;
 
 import com.aventstack.extentreports.util.Assert;
 
+import lombok.Data;
 import tech.units.indriya.AbstractSystemOfUnits;
 import utilities.LoggerLoad;
-
+@Data
 public class DashboardPage extends BasePage {
 
 	public DashboardPage(WebDriver driver) {
@@ -24,7 +25,7 @@ public class DashboardPage extends BasePage {
 	//---------------------------------------- WebElement ----------------------------------------------------
 	public String Login_url="https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login";
 	@FindBy(xpath = "//button[@id='logout']")
-	private WebElement logoutBtn;
+	public WebElement logoutBtn;
 	
 	@FindBy(xpath = "//span[contains(text(),'LMS')]")
 	public WebElement LMSAppName;

@@ -42,13 +42,13 @@ public class ProgramPage extends BasePage {
 	@FindBy(xpath = "//p-sorticon[@field='programName']/i")
 	public WebElement sortProgramName;
 
-	@FindBy(xpath = "//thead[@class=\"p-datatable-thead\"]/tr/th[2]")
+	@FindBy(xpath = "//thead[@class='p-datatable-thead']/tr/th[2]")
 	public WebElement programNameHeader;
 
-	@FindBy(xpath = "//thead[@class=\"p-datatable-thead\"]/tr/th[3]")
+	@FindBy(xpath = "//thead[@class='p-datatable-thead']/tr/th[3]")
 	public WebElement programDesHeader;
 
-	@FindBy(xpath = "//thead[@class=\"p-datatable-thead\"]/tr/th[4]")
+	@FindBy(xpath = "//thead[@class='p-datatable-thead']/tr/th[4]")
 	public WebElement programStatusHeader;
 
 	@FindBy (xpath = "//tbody//tr//td[2]") 
@@ -100,40 +100,40 @@ public class ProgramPage extends BasePage {
 		return commonSortCheck(programStatusHeader,progStatus);
 	}
 
-	public boolean commonSortCheck(WebElement header, List<WebElement> eles)
-	{
-		justClick();
-		ArrayList<String> values=new ArrayList<String>();
-		ArrayList<String> expectedSortValues=new ArrayList<String>();
-
-		for(WebElement ele:eles)
-		{
-			values.add(ele.getText());
-			expectedSortValues.add(ele.getText());
-		}
-
-		if(header.getAttribute("aria-sort").equals("ascending"))
-		{
-			//exo value
-			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER);
-		}
-		else
-		{
-			//exo value
-			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER.reversed());
-		}
-
-		System.out.println("Values -> "+StringUtils.join(values));
-		System.out.println("expectedSortValues -> "+StringUtils.join(expectedSortValues));
-
-		for(int i=0;i<values.size();i++)
-		{
-			if(!values.get(i).equals(expectedSortValues.get(i)))
-			{
-				return false;
-			}
-		}
-
-		return true;
-	}
+//	public boolean commonSortCheck(WebElement header, List<WebElement> eles)
+//	{
+//		justClick();
+//		ArrayList<String> values=new ArrayList<String>();
+//		ArrayList<String> expectedSortValues=new ArrayList<String>();
+//
+//		for(WebElement ele:eles)
+//		{
+//			values.add(ele.getText());
+//			expectedSortValues.add(ele.getText());
+//		}
+//
+//		if(header.getAttribute("aria-sort").equals("ascending"))
+//		{
+//			//exo value
+//			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER);
+//		}
+//		else
+//		{
+//			//exo value
+//			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER.reversed());
+//		}
+//
+//		System.out.println("Values -> "+StringUtils.join(values));
+//		System.out.println("expectedSortValues -> "+StringUtils.join(expectedSortValues));
+//
+//		for(int i=0;i<values.size();i++)
+//		{
+//			if(!values.get(i).equals(expectedSortValues.get(i)))
+//			{
+//				return false;
+//			}
+//		}
+//
+//		return true;
+//	}
 }

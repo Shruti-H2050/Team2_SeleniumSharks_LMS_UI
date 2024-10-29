@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.BritishEnglish;
 import org.openqa.selenium.By;
@@ -105,5 +108,42 @@ public class BasePage {
 	public void justClick() {
 		Actions myAction = new Actions(driver);
 		myAction.keyDown(Keys.ESCAPE).keyUp(Keys.ESCAPE).perform();
+	}
+	
+	public boolean commonSortCheck(WebElement header, List<WebElement> eles)
+	{
+		justClick();
+		ArrayList<String> values=new ArrayList<String>();
+		ArrayList<String> expectedSortValues=new ArrayList<String>();
+
+		for(WebElement ele:eles)
+		{
+			values.add(ele.getText());
+			expectedSortValues.add(ele.getText());
+		}
+
+		if(header.getAttribute("aria-sort").equals("ascending"))
+		{
+			//exo value
+			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER);
+		}
+		else
+		{
+			//exo value
+			Collections.sort(expectedSortValues, String.CASE_INSENSITIVE_ORDER.reversed());
+		}
+
+		System.out.println("Values -> "+StringUtils.join(values));
+		System.out.println("expectedSortValues -> "+StringUtils.join(expectedSortValues));
+
+		for(int i=0;i<values.size();i++)
+		{
+			if(!values.get(i).equals(expectedSortValues.get(i)))
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
