@@ -53,6 +53,52 @@
 			<version>4.25.0</version>
 		</dependency>
 
+
+<!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+<dependency>
+    <groupId>net.sourceforge.tess4j</groupId>
+    <artifactId>tess4j</artifactId>
+    <version>5.13.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/de.niklasfi.aocr/aocr -->
+<dependency>
+    <groupId>de.niklasfi.aocr</groupId>
+    <artifactId>aocr</artifactId>
+    <version>2.4</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.languagetool/language-en -->
+<!-- https://mvnrepository.com/artifact/org.languagetool/language-en -->
+<!-- https://mvnrepository.com/artifact/org.languagetool/language-en -->
+<dependency>
+    <groupId>org.languagetool</groupId>
+    <artifactId>language-en</artifactId>
+    <version>6.4</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.languagetool/languagetool-gui-commons -->
+<dependency>
+    <groupId>org.languagetool</groupId>
+    <artifactId>languagetool-gui-commons</artifactId>
+    <version>5.9</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.languagetool/languagetool-core -->
+
+
+<dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>31.1-jre</version>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.languagetool/languagetool-core -->
+<dependency>
+    <groupId>org.languagetool</groupId>
+    <artifactId>languagetool-core</artifactId>
+    <version>6.4</version>
+</dependency>
+
+ 
 		<!--https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -117,6 +163,7 @@
 			<artifactId>allure-cucumber7-jvm</artifactId>
 			<version>2.29.0</version>
 		</dependency>
+		
 		<!--https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
@@ -139,8 +186,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!--
-		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<!--https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -153,6 +199,49 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.18.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+		<dependency>
+			<groupId>net.sourceforge.tess4j</groupId>
+			<artifactId>tess4j</artifactId>
+			<version>5.13.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/de.niklasfi.aocr/aocr -->
+		<dependency>
+			<groupId>de.niklasfi.aocr</groupId>
+			<artifactId>aocr</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.languagetool</groupId>
+			<artifactId>language-en</artifactId>
+			<version>6.4</version>
+		</dependency>
+		
+		<!--
+		https://mvnrepository.com/artifact/org.languagetool/languagetool-gui-commons -->
+		<dependency>
+			<groupId>org.languagetool</groupId>
+			<artifactId>languagetool-gui-commons</artifactId>
+			<version>5.9</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.languagetool/languagetool-core -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>31.1-jre</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.languagetool/languagetool-core -->
+		<dependency>
+			<groupId>org.languagetool</groupId>
+			<artifactId>languagetool-core</artifactId>
+			<version>6.4</version>
 		</dependency>
 
 	</dependencies>
