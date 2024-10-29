@@ -546,7 +546,7 @@ public void admin_clicks_link_on_the_class_table(String page) {
 
 
 
-}
+
 
 	@Given("Admin is on the Manage Class page")
 	public void admin_is_on_the_manage_class_page() {
