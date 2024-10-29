@@ -29,7 +29,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.cucumber.messages.types.Duration;
+
 
 @Data
 public class BasePage {
