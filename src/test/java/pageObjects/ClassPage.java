@@ -52,7 +52,34 @@ public class ClassPage extends BasePage{
 		
 		@FindBy (xpath="//button[@class='p-button-danger p-button p-component p-button-icon-only']")
 		private WebElement deleteButton;
+		
+		@FindBy (xpath="//button[@icon='pi pi-pencil']")
+		private WebElement editIcon;
+		
+		@FindBy (xpath="//p-dialog[@header='Class Details' and @ng-reflect-visible='true']")
+		private WebElement editDialog;
+		
+		
+		@FindBy (xpath="//input[@type='text' and 'disabled' and@placeholder='Select a Batch Name']")
+		private WebElement BtchNameFieldDisabledforediting;
+		//input[@id='classTopic' and 'disabled']
 
+		@FindBy (xpath="//input[@id='classTopic' and 'disabled']")
+		private WebElement classTopicFieldDisabledforediting;
+		
+		
+		@FindBy (xpath="//input[@id='classDescription']")
+		private WebElement classDescField;
+		
+		
+		@FindBy (xpath="//input[@id='classComments']")
+		private WebElement classCmntsField;
+		
+		@FindBy (xpath="//button[@label='Save']")
+		private WebElement saveBtn;
+		
+		@FindBy (xpath="//*[contains(text(), 'Successful')]")
+		private WebElement succMsg;
 	public void clickClassBtn() {
 		classBtn.click();
 	}
@@ -110,5 +137,29 @@ public class ClassPage extends BasePage{
 }
 	public void clickTopLeftDeleteIcon() {
 		deleteButton.click();
+	}
+	public void clickeditIcon() {
+		editIcon.click();
+	}
+	public void editDialog() {
+		editDialog.isDisplayed();
+	}
+	public void pgmFieldDisabledforediting() {
+		BtchNameFieldDisabledforediting.isDisplayed();
+	}
+	public void classTopicFieldDisabledforediting() {
+		classTopicFieldDisabledforediting.isDisplayed();
+	}
+	public void classDescField() {
+		classDescField.sendKeys("test");
+	}
+	public void classCmntsField() {
+		classCmntsField.sendKeys("hello");
+	}
+	public void clickSave() {
+		saveBtn.click();
+	}
+	public void succMsg() {
+		succMsg.isDisplayed();
 	}
 }
