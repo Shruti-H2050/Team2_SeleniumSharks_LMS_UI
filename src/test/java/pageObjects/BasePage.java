@@ -9,8 +9,10 @@ import java.util.List;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.BritishEnglish;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -98,5 +100,10 @@ public class BasePage {
         {
         	e.printStackTrace();
         }	
+	}
+	
+	public void justClick() {
+		Actions myAction = new Actions(driver);
+		myAction.keyDown(Keys.ESCAPE).keyUp(Keys.ESCAPE).perform();
 	}
 }
